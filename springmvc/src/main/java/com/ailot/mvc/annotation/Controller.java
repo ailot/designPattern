@@ -1,4 +1,4 @@
-package com.ailot.mvc.v1.annotation;
+package com.ailot.mvc.annotation;
 
 import java.lang.annotation.*;
 
@@ -10,8 +10,7 @@ import java.lang.annotation.*;
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
-public @interface Service {
+public @interface Controller {
 
     String value() default "";
-
 }

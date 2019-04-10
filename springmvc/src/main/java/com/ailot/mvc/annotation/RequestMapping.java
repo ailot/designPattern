@@ -1,4 +1,4 @@
-package com.ailot.mvc.v1.annotation;
+package com.ailot.mvc.annotation;
 
 import java.lang.annotation.*;
 
@@ -7,10 +7,10 @@ import java.lang.annotation.*;
  * @version Controller.java, 2019年04月07日 上午11:41
  */
 
-@Target(ElementType.TYPE)
+@Target({ElementType.TYPE,ElementType.METHOD})
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
-public @interface Controller {
+public @interface RequestMapping {
 
-    String value() default "";
+    String value() default  "";
 }

@@ -1,6 +1,6 @@
-package com.ailot.mvc.v1.service;
+package com.ailot.mvc.service;
 
-import com.ailot.mvc.v1.annotation.Service;
+import com.ailot.mvc.annotation.Service;
 
 /**
  * @author ailot

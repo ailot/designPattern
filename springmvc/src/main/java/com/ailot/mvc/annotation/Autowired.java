@@ -1,4 +1,4 @@
-package com.ailot.mvc.v1.annotation;
+package com.ailot.mvc.annotation;
 
 import java.lang.annotation.*;
 

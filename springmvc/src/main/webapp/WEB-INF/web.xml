@@ -7,7 +7,7 @@
     
     <servlet>
         <servlet-name>springmvc</servlet-name>
-        <servlet-class>com.ailot.mvc.v1.DispatcherServlet</servlet-class>
+        <servlet-class>com.ailot.mvc.servlet.v1.DispatcherServlet</servlet-class>
         <init-param>
             <param-name>contextConfigLocation</param-name>
             <param-value>application.properties</param-value>

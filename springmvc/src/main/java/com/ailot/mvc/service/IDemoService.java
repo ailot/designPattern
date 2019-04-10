@@ -1,4 +1,4 @@
-package com.ailot.mvc.v1.service;
+package com.ailot.mvc.service;
 
 /**
  * @author ailot

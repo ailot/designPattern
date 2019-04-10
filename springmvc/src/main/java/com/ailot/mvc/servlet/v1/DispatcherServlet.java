@@ -1,9 +1,9 @@
-package com.ailot.mvc.v1;
+package com.ailot.mvc.servlet.v1;
 
-import com.ailot.mvc.v1.annotation.Autowired;
-import com.ailot.mvc.v1.annotation.Controller;
-import com.ailot.mvc.v1.annotation.RequestMapping;
-import com.ailot.mvc.v1.annotation.Service;
+import com.ailot.mvc.annotation.Autowired;
+import com.ailot.mvc.annotation.Controller;
+import com.ailot.mvc.annotation.RequestMapping;
+import com.ailot.mvc.annotation.Service;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 

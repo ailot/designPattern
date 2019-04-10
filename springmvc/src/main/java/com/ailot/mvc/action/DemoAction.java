@@ -1,10 +1,10 @@
-package com.ailot.mvc.v1.action;
+package com.ailot.mvc.action;
 
-import com.ailot.mvc.v1.annotation.Autowired;
-import com.ailot.mvc.v1.annotation.Controller;
-import com.ailot.mvc.v1.annotation.RequestMapping;
-import com.ailot.mvc.v1.annotation.RequestParam;
-import com.ailot.mvc.v1.service.IDemoService;
+import com.ailot.mvc.annotation.Autowired;
+import com.ailot.mvc.annotation.Controller;
+import com.ailot.mvc.annotation.RequestMapping;
+import com.ailot.mvc.annotation.RequestParam;
+import com.ailot.mvc.service.IDemoService;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
