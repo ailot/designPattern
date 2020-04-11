@@ -31,4 +31,14 @@ public class DemoAction {
             e.printStackTrace();
         }
     }
+
+    @RequestMapping("/add")
+    public void add(HttpServletRequest request, HttpServletResponse response, @RequestParam("name") String name){
+        String result = demoservice.get(name);
+        try {
+            response.getWriter().write(result);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }

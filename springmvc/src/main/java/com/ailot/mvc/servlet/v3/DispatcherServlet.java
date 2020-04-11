@@ -44,9 +44,9 @@ public class DispatcherServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        //6、调用
+        //6、调用 
         try {
-            doDistapcher(req, resp);
+            doDispatcher(req, resp);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -54,7 +54,7 @@ public class DispatcherServlet extends HttpServlet {
 
     }
 
-    private void doDistapcher(HttpServletRequest req, HttpServletResponse resp) throws Exception {
+    private void doDispatcher(HttpServletRequest req, HttpServletResponse resp) throws Exception {
         Handler handler = getHandler(req);
         if (handler == null){
             resp.getWriter().write("404 NOT FOUND");
@@ -66,7 +66,7 @@ public class DispatcherServlet extends HttpServlet {
         for (Map.Entry<String, String[]> entry : parameterMap.entrySet()) {
             String value = Arrays.toString(entry.getValue()).replaceAll("\\[|\\]","")
                     .replaceAll("\\s",",");
-            if (handler.paramIndexMapping.containsKey(entry.getKey())){continue;}
+            if (!handler.paramIndexMapping.containsKey(entry.getKey())){continue;}
             int index = handler.paramIndexMapping.get(entry.getKey());
             paramValues[index] = convert(paramTypes[index],value);
         }
@@ -76,7 +76,7 @@ public class DispatcherServlet extends HttpServlet {
         }
         if (handler.paramIndexMapping.containsKey(HttpServletResponse.class.getName())){
             int respIndex = handler.paramIndexMapping.get(HttpServletResponse.class.getName());
-            paramValues[respIndex] = req ;
+            paramValues[respIndex] = resp ;
         }
         Object retureValue = handler.method.invoke(handler.controller,paramValues);
         if (retureValue == null || retureValue instanceof Void){
@@ -109,10 +109,8 @@ public class DispatcherServlet extends HttpServlet {
         //1、加载配置文件
         doLoadConfig(config.getInitParameter("contextConfigLocation"));
 
-
         //2、扫描包
         doScanner(properties.getProperty("scanPackage"));
-
 
         //3、初始化扫描到的类，并加入IOC容器中
         doInstance();
@@ -159,10 +157,6 @@ public class DispatcherServlet extends HttpServlet {
         if (ioc.isEmpty()) {
             return;
         }
-        for (Map.Entry<String, Object> entry : ioc.entrySet()) {
-
-        }
-
         ioc.forEach((key, value) -> {
             Field[] fields = value.getClass().getDeclaredFields();
             for (Field field : fields) {
